@@ -70,12 +70,11 @@ SELECT
 FROM  Candidate_data;
 
 
-
-
+--1. Finding Total Candidates:
 SELECT COUNT(*) AS Total_Candidates
 FROM  Candidate_data;
 
-
+--2. Finding Total Candidates Hired :
 SELECT COUNT(*) AS Total_Hired
 FROM  Candidate_data
 WHERE HiringDecision = 1;
@@ -87,14 +86,13 @@ SELECT COUNT(*) AS Total_Hired
 FROM Candidate_data
 WHERE HiringDecision= '1' ;
 
---To calculate Ovetrall Hiring Rate:
+--3. To calculate Ovetrall Hiring Rate:
 SELECT
 ROUND(
 COUNT(CASE WHEN HiringDecision = '1' THEN 1 END) * 100.0
 / COUNT(*),2
 ) AS Hiring_Rate
 FROM Candidate_data;
-
 
 --4. Average Candidate Experience
 SELECT ROUND (AVG(ExperienceYears), 2) AS 
@@ -113,7 +111,6 @@ SELECT
 THEN 1 END) AS Hired_Count
 FROM Candidate_data
 GROUP BY Gender;
-
 
 --8. Hiring Rate by Interview Score Range :
 SELECT
